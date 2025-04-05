@@ -143,7 +143,7 @@ jobs:
           node scripts/sign-update.js downloaded-updater.json tauri.key "${{ secrets.TAURI_KEY_PASSWORD }}"
           
           # 再次上传更新后的元数据文件
-          gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
+          gh auth login --with-token "${{ secrets.GITHUB_TOKEN }}"
           gh release upload $VERSION_TAG downloaded-updater.json --clobber
           
           # 复制signed内容到latest-version.json
